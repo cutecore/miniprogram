@@ -1,0 +1,98 @@
+<!--pages/mine/mine.wxml-->
+<view class="home">
+    <view wx:if="{{!hasUserInfo}}">
+        <button open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">同步信息</button>
+    </view>
+    <view wx:if="userInfo">
+        <text>{{userInfo.nickName}}</text>
+        <!-- <image src="{{userInfo.avatarUrl}}" style="hight:25rpx,width:25rpx"></image> -->
+    </view>
+
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+            当前选择：{{array[index]}}
+        </view>
+    </picker>
+
+
+
+
+    
+
+    <view class="addpost">
+        <form bindsubmit="addpost">
+            <view class="addpost">
+                <label>文本:</label>
+                <input name="input" type="text"></input>
+                <button type="primary" size="mini" form-type="submit">发表</button>
+            </view>
+        </form>
+
+    </view>
+
+
+    <view class="post" wx:for="{{post}}" wx:key="index">
+        <view class="item">
+            <view class="line1">
+                {{index}}:{{item}}
+            </view>
+            <view class="op">
+                <text class="update" data-id="{{index}}" size="mini" bindtap="update">更新</text>
+                <text class="remove" data-id="{{index}}" size="mini" bindtap="remove">删除</text>
+            </view>
+        </view>
+
+    </view>
+
+
+    <view class="test">
+        <view class="part1">
+            <text>part1</text>
+            <text>part1</text>
+        </view>
+        <view class="part2">
+            <text>part2</text>
+            <text>part2</text>
+        </view>
+        <view class="part3">
+            <text>part3</text>
+            <text>part3</text>
+        </view>
+    </view>
+
+
+    <view class="kfc">
+        <view wx:for="{{kfc}}" wx:key="id">
+            <view class="kfc-item">
+                <image class="kfc-img" src="/pages/index/bg/kfc.jpg"></image>
+                <view class="kfc-text">
+                    <view class="kfc-line1">
+                        <text>{{item.title}}</text>
+                        <text>{{item._distance}}</text>
+                    </view>                    
+                    <text>{{item.address}}</text>                  
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="gyroscope">
+        <text>{{g_value}}</text>
+
+    </view>
+
+
+    <view class="goodinfo">
+        <view class="title">
+            <text>关键词抽取</text>
+        </view>
+        <form bindsubmit="goodinfosearch">
+            <view class="goodinfosearch">
+                <label>文本:</label>
+                <input name="input" type="text"></input>
+                <button type="primary" size="mini" form-type="submit">搜索</button>
+            </view>
+        </form>
+        <text class="good">{{good}}</text>
+    </view>
+</view>

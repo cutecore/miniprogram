@@ -1,0 +1,86 @@
+<view class="home">
+    <view class="header">
+        <view class="title line1">
+            灵活高效的
+        </view>
+        <view class="title line2">
+            凡拓/凡拓/凡拓/凡拓
+        </view>
+    </view>
+
+    <view class="menu">
+        <view class="part1">
+            <text class="white-text">图片压缩裁剪</text>
+        </view>
+        <view class="part2">
+            <view class="rgb">
+                <text class="white-text">文本翻译</text>
+            </view>
+            <view class="sysinfo">
+                <text class="white-text">系统信息</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="search">
+        <view class="left">
+            <view class="ip">
+                <text class="white-text">IP查询</text>
+            </view>
+            <view class="poi">
+                <text class="white-text">POI查询</text>
+            </view>
+        </view>
+        <view class="right">
+            <view class="express">
+                <text class="white-text">快递查询</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="search">
+        <view class="epic" bindtap="kfc_search">
+            <text class="white-text">Epic</text>
+        </view>
+        <view class="switch">
+            <text class="white-text">Switch</text>
+        </view>
+        <view class="steam">
+            <text class="white-text">Steam</text>
+        </view>
+    </view>
+
+
+    <view class="search">
+        <view class="fund" bindtap="fund_search">
+            <text class="white-text">基金查询</text>
+        </view>
+        <view class="translate">
+            <text class="white-text">RGB HEX转换</text>
+        </view>
+    </view>
+
+    <view class="search">
+        <view class="exchangeRate">
+            <text class="white-text">汇率转换</text>
+        </view>
+
+        <view class="clipboard">
+            <text class="white-text">剪切板</text>
+        </view>
+
+        <view class="weather">
+            <text class="white-text">天气</text>
+        </view>
+        <view class="kfc">
+            <text class="white-text">KFC</text>
+        </view>
+    </view>
+
+    <view class="search">
+        <view class="qrcode" bindtap="qrcode">
+            <text class="white-text">一维、二维、Data Matrix、PDF417</text>
+        </view>
+    </view>
+
+</view>

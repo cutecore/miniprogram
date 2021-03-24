@@ -1,0 +1,47 @@
+/* pages/mine/mine.wxss */
+
+.home{
+    display: flex;
+    flex-direction: column;
+    padding: 0rpx 40rpx;
+}
+.item{
+    display: flex;
+    flex-direction: column;
+}
+
+.item .op{
+    display: flex;
+    flex-direction: row-reverse;  
+}
+
+.test{
+    display: flex;
+    flex-direction: row;
+    height: 250rpx;
+}
+
+.part1{
+    background-color: #1ff;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+.part2{
+    background-color: #f1f;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.part3{
+    background-color: #ff1;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
