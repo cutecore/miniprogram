@@ -5,292 +5,64 @@
     background-color: #fff;
 }
 
-view {
-    box-sizing: border-box;
+.search{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 25rpx;
+    padding: 10rpx 0rpx;
 }
 
-.home .header{
+.index-tab{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     padding: 20rpx 0rpx;
-    font-size: x-large;
-    font-weight: bold;
-}
-
-.home .menu{
-    display: flex;
-}
-
-.home .menu .part1{
-    flex: 2;
-    background-color: #1143FD;
+    background-color: #99CCCC;
     border-radius: 25rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
 
-
-.home .menu .part2{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-left: 15rpx;
-}
-
-.rgb{
-    background-color:#34B3FF;
+.tab-item{
+    padding: 10rpx 20rpx;
     border-radius: 25rpx;
-    padding: 50rpx 15rpx;
-    margin-bottom: 15rpx;
-    display: flex;
-    justify-content: center;
-}
-
-.sysinfo{
-    background-color: #0FCE8C;
-    border-radius: 25rpx;
-    padding: 50rpx 15rpx; 
-    display: flex;
-    justify-content: center;
-}
-
-.white-text{
     color: #fff;
 }
 
-.search {
+
+.categorys{
     display: flex;
-    padding: 15rpx 0rpx;
-}
-
-.right{
-    flex: 1;
-    
-}
-
-.left{
-    flex: 2;
-    display:flex;
-    flex-direction: row;
-}
-
-.ip{
-    flex: 1;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #FFCC99;
     border-radius: 25rpx;
-    background-color: #B6C29A;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin-right: 15rpx;
 }
 
-.poi{
-    flex: 1;
+.category{
+    padding: 10rpx 20rpx;
     border-radius: 25rpx;
-    background-color: #8A977B;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    margin-right: 15rpx;
+    color: #fff;
+    margin-top: 10rpx;
 }
 
-.express{
-    flex: 1;
-    border-radius: 25rpx;
-    background-color: #F4D000;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-}
-
-.epic{
-    flex: 1;
-    border-radius: 25rpx;
-    background-color: #007DFC;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-}
-
-.switch{
-    flex: 1;
-    border-radius: 25rpx;
-    background-color: #E60012;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-    margin: 0 15rpx 0 15rpx;
-}
-
-.steam{
-    flex: 1;
-    border-radius: 25rpx;
-    background-color: #171A21;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-}
-
-
-.fund{
-    flex: 1;
-    border-radius: 25rpx;
-    background-color: #FE4365;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-}
-
-
-.translate{
-    flex: 2;
-    border-radius: 25rpx;
-    background-color: #FC9D9A;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-    margin-left: 15rpx;
-}
-
-
-.exchangeRate{
-    flex: 2;
-    border-radius: 25rpx;
-    background-color: #A0BF7C;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-}
-
-.clipboard{
-    flex: 2;
-    border-radius: 25rpx;
-    background-color: #65934A;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-    margin-left: 15rpx;
-}
-
-.weather{
-    flex: 1;
-    border-radius: 25rpx;
-    background-color: #407434;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-    margin-left: 15rpx;
-}
-
-.kfc{
-    flex: 1;
-    border-radius: 25rpx;
-    background-color: #185a09;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-    margin-left: 15rpx;
-}
-
-.qrcode{
-    flex: 1;
-    border-radius: 25rpx;
-    background-color: #6DC4DF;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 50rpx 15rpx;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* */
-
-.kfc-item{
-    margin-top: 15rpx;
-    padding: 15rpx 15rpx;
-    border-radius: 25rpx;
-    display: flex;
-    background-color: #34B3FF;
-   
-}
-.kfc-img{
-    flex: 1 1 30%;
-    height: 136rpx;
-    width: 256rpx;
-}
-
-.kfc-text{
-    flex: 1 1 60%;
+.game_list{
     display: flex;
     flex-direction: column;
-    flex-shrink:1;
-    justify-content: space-between;
 }
 
-.kfc-line1{
-    display: flex;
-    justify-content: space-between;
+.game_list_item{
+    padding: 40rpx 0rpx;
+}
+.add{
+    background-color: #FFCCCC;
+    border-radius: 25rpx;
 }
 
-
-
-
-.goodinfo{
+.order{
     display: flex;
-    flex-direction: column;
-    margin: 15rpx;
-    border-radius: 15rpx;
-    background-color: rgb(212, 253, 250);
-  }
-  
-  .goodinfo .title{
-    margin: 15rpx;
-  }
-  
-  .goodinfo .goodinfosearch{
-    margin: 15rpx;
+}
+
+.order-item{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .goodinfo .good{
-    margin: 15rpx;
-  }
+    padding: 20rpx 10rpx;
+}

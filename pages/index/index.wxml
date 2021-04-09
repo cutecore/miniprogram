@@ -1,86 +1,52 @@
 <view class="home">
-    <view class="header">
-        <view class="title line1">
-            灵活高效的
-        </view>
-        <view class="title line2">
-            凡拓/凡拓/凡拓/凡拓
-        </view>
+    <view class='search'>
+        <input class="input" type='text' placeholder='输入名称查询' bindinput='input' bindconfirm='search' />
+        <icon type='search' bindtap="search"></icon>
     </view>
 
-    <view class="menu">
-        <view class="part1">
-            <text class="white-text">图片压缩裁剪</text>
-        </view>
-        <view class="part2">
-            <view class="rgb">
-                <text class="white-text">文本翻译</text>
-            </view>
-            <view class="sysinfo">
-                <text class="white-text">系统信息</text>
+    <view class="index-tab" wx:if="{{showTab}}">
+        <view wx:for="{{index_tab}}" wx:key="id">
+            <view class="tab-item" data-id="{{item.type}}" style="background-color:{{item.color}}"
+                bindtap="change_index_type">
+                <text>{{item.name}}</text>
             </view>
         </view>
     </view>
 
-    <view class="search">
-        <view class="left">
-            <view class="ip">
-                <text class="white-text">IP查询</text>
-            </view>
-            <view class="poi">
-                <text class="white-text">POI查询</text>
-            </view>
-        </view>
-        <view class="right">
-            <view class="express">
-                <text class="white-text">快递查询</text>
+    <view class="categorys">
+        <view wx:for="{{categorys}}" wx:key="id">
+            <view class="category" data-id="{{item.type}}" style="background-color:{{item.color}}"
+                bindtap="change_index_game_category">
+                <text>{{item.name}}</text>
             </view>
         </view>
     </view>
 
-    <view class="search">
-        <view class="epic" bindtap="kfc_search">
-            <text class="white-text">Epic</text>
+  <view class="add">
+    <view>
+        <radio-group bindchange="radioChange">
+            <view class="order">
+            <label wx:for="{{order}}" wx:key="id">
+                <view class="order-item">
+                    <radio value="{{item.id}}" checked="true"  />
+                    <view>{{item.name}}</view>
+                </view>
+            </label>
         </view>
-        <view class="switch">
-            <text class="white-text">Switch</text>
-        </view>
-        <view class="steam">
-            <text class="white-text">Steam</text>
-        </view>
+        </radio-group>
     </view>
 
+    <view class="filter">
+        <checkbox value="cb" checked="true"/>中文
+        <checkbox value="cb" checked="true"/>云存储
+        <checkbox value="cb" checked="true"/>xxx模式
+    </view>
+  </view>
+    
 
-    <view class="search">
-        <view class="fund" bindtap="fund_search">
-            <text class="white-text">基金查询</text>
-        </view>
-        <view class="translate">
-            <text class="white-text">RGB HEX转换</text>
+    <view class="game_list">
+        <view wx:for="{{index_game_list}}" wx:key="id">
+            <view class="game_list_item" data-id="{{item.id}}" bindtap="tap-game">{{item.title}}</view>
         </view>
     </view>
-
-    <view class="search">
-        <view class="exchangeRate">
-            <text class="white-text">汇率转换</text>
-        </view>
-
-        <view class="clipboard">
-            <text class="white-text">剪切板</text>
-        </view>
-
-        <view class="weather">
-            <text class="white-text">天气</text>
-        </view>
-        <view class="kfc">
-            <text class="white-text">KFC</text>
-        </view>
-    </view>
-
-    <view class="search">
-        <view class="qrcode" bindtap="qrcode">
-            <text class="white-text">一维、二维、Data Matrix、PDF417</text>
-        </view>
-    </view>
-
 </view>

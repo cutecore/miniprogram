@@ -1,100 +1,198 @@
 // pages/mine/mine.js
+// categoryTranslateMap.put("Music","音乐");
+
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        kfc: null,
-        g_value: null
-    },
-
-    fund_search() {
-        wx.navigateTo({
-            url: '/pages/fund/fund',
-        })
-    },
-    searchKfc: function (latitude, longitude) {
-        let _this = this;
-        let boundary = `nearby(${latitude},${longitude},1000)`
-        wx.serviceMarket.invokeService({
-            service: 'wxc1c68623b7bdea7b',
-            api: 'poiSearch',
-            data: {
-                "boundary": boundary,
-                "page_size": "20",
-                "page_index": "1",
-                "keyword": "KFC",
-                "orderby": "_distance"
+        input: "",
+        categorys: [{
+                'color': '#9BD4B2',
+                type: "Role-Playing",
+                name: "角色扮演"
             },
+            {
+                'color': '#9BD4B2',
+                type: "Sports",
+                name: "体育"
+            },
+            {
+                'color': '#2C4553',
+                type: "Adventure",
+                name: "冒险"
+            },
+            {
+                'color': '#B5C228',
+                type: "Indie",
+                name: "独立"
+            },
+            {
+                'color': '#738AF2',
+                type: "Fighting",
+                name: "格斗"
+            },
+            {
+                'color': '#42406E',
+                type: "Shooter",
+                name: "射击"
+            },
+            {
+                'color': '#AC2BE0',
+                type: "Action",
+                name: "动作"
+            },
+            {
+                'color': '#9BD4B2',
+                type: "First-Person",
+                name: "第一人称"
+            },
+            {
+                'color': '#9BD4B2',
+                type: "Party",
+                name: "聚会"
+            },
+            {
+                'color': '#9BD4B2',
+                type: "Multiplayer",
+                name: "多人游戏"
+            },
+            {
+                'color': '#9BD4B2',
+                type: "Racing",
+                name: "赛车"
+            }
+        ],
+        order: [{
+            id: 1,
+            name: '价格'
+        }, {
+            id: 2,
+            name: '评价'
+        },{
+            id: 3,
+            name: '标题'
+        }],
 
-        }).then(res => {
-            console.log(res.data.data)
-            _this.setData({
-                "kfc": res.data.data
-            })
+        index_tab: [{
+                name: "热门",
+                type: "hot",
+                color: "#86E3CE"
+            },
+            {
+                name: "好评",
+                type: "rate",
+                color: "#D0E6A5"
+            },
+            {
+                name: "打折",
+                type: "sales",
+                color: "#FFDD94"
+            }
+        ],
+        check_order: "sales",
+        check_tap: 'hot',
+        index_game_list: [],
+        start: 0,
+        limit: 15,
+        showTab: true,
+        focus:""
+    },
+    input(e){
+        let input = e.detail.value
+        this.setData({
+            input
         })
     },
-    kfc_search() {
+    search(){
+        let input = this.data.input
+        let token = wx.getStorageSync('token')
+        ///query-name/{name}
         let _this = this
-        wx.getSetting({
+        let url =  getApp().globalData.server + "/query-name/" + input
+        wx.request({
+            url: url,
+            method: 'GET',
+            header: {
+                auth: token
+            },
             success(res) {
-                if (!res.authSetting['scope.userLocation']) {
-                    wx.authorize({
-                        scope: 'scope.userLocation',
-                        success() {
-                            wx.getLocation({
-                                type: 'wgs84',
-                                success(res) {
-                                    let latitude = res.latitude
-                                    let longitude = res.longitude
-                                    _this.searchKfc(latitude, longitude)
-                                }
-                            })
-                        },
-                        fail() {
-                            wx.showModal({
-                                title: '是否授权当前位置',
-                                content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
-                                success: function (resolve) {
-                                    if (resolve.confirm) {
-                                        wx.openSetting()
-                                    }
+                if (601 == res.statusCode) {
+                    getApp().userlogin()
+                }
 
-                                }
-                            })
-
-                        }
+                if (200 == res.statusCode) {
+                    _this.setData({
+                        index_game_list: res.data
                     })
-                } else {
-                    wx.getLocation({
-                        type: 'wgs84',
-                        success(res) {
-                            let latitude = res.latitude
-                            let longitude = res.longitude
-                            _this.searchKfc(latitude, longitude)
-                        }
+                }
+            }
+        })
+
+
+    },
+    change_index_game_category(e){
+        let type = e.currentTarget.dataset.id
+        let token = wx.getStorageSync('token')
+        let start = this.data.start
+        let limit = this.data.limit
+        let _this = this
+        ///query/{category}/{player}/{hasChinese}/{order}/{start}/{limit}
+        let url = getApp().globalData.server + "/query/" + type + "/1/true/1/" + start + "/" + limit;
+        wx.request({
+            url: url,
+            method: 'GET',
+            header: {
+                auth: token
+            },
+            success(res) {
+                if (601 == res.statusCode) {
+                    getApp().userlogin()
+                }
+
+                if (200 == res.statusCode) {
+                    _this.setData({
+                        index_game_list: res.data
+                    })
+                }
+            }
+        })
+
+
+    },
+    change_index_type(e) {
+        let type = e.currentTarget.dataset.id
+        let token = wx.getStorageSync('token')
+        let start = this.data.start
+        let limit = this.data.limit
+        let _this = this
+        this.setData({
+            check_tap: type
+        })
+        // /index/{type}/{start}/{limit}
+        let url = getApp().globalData.server + "/index/" + type + "/" + start + "/" + limit;
+        wx.request({
+            url: url,
+            method: 'GET',
+            header: {
+                auth: token
+            },
+            success(res) {
+                if (601 == res.statusCode) {
+                    getApp().userlogin()
+                }
+
+                if (200 == res.statusCode) {
+                    _this.setData({
+                        index_game_list: res.data
                     })
                 }
             }
         })
 
     },
-    qrcode() {
-        wx.scanCode({
-            success(res) {
-                wx.showModal({
-                    title: '扫描结果',
-                    content: res.result
-                })
-                wx.setClipboardData({
-                    data: res.result,
-                })
-            }
-        })
-    },
-
-
 
     /**
      * 生命周期函数--监听页面加载
@@ -107,68 +205,43 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        // let _this = this;
-        // wx.startGyroscope({
-        //   "interval": "game",
-        //   success(){
-        //       console.log("1")
-        //   }
-        // })
-        // wx.onGyroscopeChange(function(res){
-        //     console.log(res)
-        //     _this.setData({
-        //         "g_value": res.x,
 
-        //     })
-        // })
     },
-    goodinfosearch: function (e) {
-        console.log(e)
-        let _this = this
-        if (!e.detail.value.input) {
-            return
-        }
-        wx.serviceMarket.invokeService({
-            service: 'wxcae50ba710ca29d3',
-            api: 'goodinfo',
-            data: {
-                "q": e.detail.value.input,
-            },
 
-        }).then(res => {
-            let text = ''
-
-            for (let val of res.data.entities.product) {
-                text += (val[0] + " " + val[1] + "")
-            }
-
-            _this.setData({
-                "good": text
-            })
-        })
-    },
-    getInfo() {
-        let _this = this
-        wx.request({
-            url: 'https://fundgz.1234567.com.cn/js/161706.js?rt=1463558676006',
-            success: function (res) {
-                if (res.data) {
-                    let raw_json = res.data.replace('jsonpgz(', '').replace(');', '')
-                    let obj = JSON.parse(raw_json)
-                    obj.time = new Date().toLocaleString()
-
-                    _this.setData({
-                        part0: obj
-                    })
-                }
-            }
-        })
-    },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        let type = this.data.check_tap
+        let token = wx.getStorageSync('token')
+        let start = this.data.start
+        let limit = this.data.limit
+        let _this = this
+        this.setData({
+            check_tap: type
+        })
+        // /index/{type}/{start}/{limit}
+        let url = getApp().globalData.server + "/index/" + type + "/" + start + "/" + limit;
+        wx.request({
+            url: url,
+            method: 'GET',
+            header: {
+                auth: token
+            },
+            success(res) {
+                if (601 == res.statusCode) {
+                    getApp().userlogin()
+                }
+
+                if (200 == res.statusCode) {
+                    _this.setData({
+                        index_game_list: res.data
+                    })
+                }
+            }
+        })
+
 
     },
 
@@ -197,6 +270,36 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+
+        let _old = this.data.index_game_list
+        let type = this.data.check_tap
+        let token = wx.getStorageSync('token')
+        let limit = this.data.limit
+        let start = this.data.start + limit
+        this.setData({
+            start
+        })
+        let _this = this
+        // /index/{type}/{start}/{limit}
+        let url = getApp().globalData.server + "/index/" + type + "/" + start + "/" + limit;
+        wx.request({
+            url: url,
+            method: 'GET',
+            header: {
+                auth: token
+            },
+            success(res) {
+                if (601 == res.statusCode) {
+                    getApp().userlogin()
+                }
+                if (200 == res.statusCode) {
+                    let _new = _old.concat(res.data)
+                    _this.setData({
+                        index_game_list: _new
+                    })
+                }
+            }
+        })
 
     },
 

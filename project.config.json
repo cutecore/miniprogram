@@ -4,8 +4,8 @@
         "ignore": []
     },
     "setting": {
-        "urlCheck": true,
-        "es6": false,
+        "urlCheck": false,
+        "es6": true,
         "enhance": false,
         "postcss": true,
         "preloadBackgroundData": false,
@@ -52,6 +52,7 @@
         "servePath": ""
     },
     "isGameTourist": false,
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
     "condition": {
         "search": {
             "list": []
