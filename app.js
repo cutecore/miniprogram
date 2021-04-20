@@ -5,8 +5,8 @@ App({
 	globalData: {
 		token: null,
 		systemInfo: null,
-		server: 'http://127.0.0.1:80',
-		// server: 'http://140.143.211.59:80'
+		// server: 'http://127.0.0.1:80',
+		server: 'https://www.switch-game-slack.top'
 	},
 
 	showModal: function (t, e) {

@@ -193,6 +193,37 @@ Page({
         })
 
     },
+    tap_game(e){
+
+        console.log(e)
+        let id = e.currentTarget.dataset.id
+        let token = wx.getStorageSync('token')
+       
+        let _this = this
+        let url = getApp().globalData.server + "/game-opt/hit/" + id;
+        wx.request({
+            url: url,
+            method: 'POST',
+            header: {
+                auth: token
+            },
+            success(res) {
+                if (601 == res.statusCode) {
+                    getApp().userlogin()
+                }
+
+                if (200 == res.statusCode) {
+                    _this.setData({
+                        index_game_list: res.data
+                    })
+                }
+            }
+        })
+
+
+
+
+    },
 
     /**
      * 生命周期函数--监听页面加载

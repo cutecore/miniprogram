@@ -8,22 +8,21 @@
 .search{
     display: flex;
     justify-content: space-between;
-    background-color: #fff;
+    background-color: #FB6F4F;
     border-radius: 25rpx;
     padding: 10rpx 0rpx;
 }
 
 .index-tab{
+    margin-top: 20rpx;
     display: flex;
-    justify-content: space-between;
-    width: 100%;
     padding: 20rpx 0rpx;
     background-color: #99CCCC;
     border-radius: 25rpx;
-
 }
 
 .tab-item{
+    margin: 10rpx;
     padding: 10rpx 20rpx;
     border-radius: 25rpx;
     color: #fff;
@@ -32,22 +31,25 @@
 
 .categorys{
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     background-color: #FFCC99;
     border-radius: 25rpx;
+    margin-top: 20rpx;
 }
 
 .category{
     padding: 10rpx 20rpx;
     border-radius: 25rpx;
     color: #fff;
-    margin-top: 10rpx;
+    margin: 10rpx;
 }
 
 .game_list{
+    margin-top: 20rpx;
     display: flex;
     flex-direction: column;
+    border-radius: 25rpx;
+    background-color: #F7EED6;
 }
 
 .game_list_item{
@@ -65,4 +67,9 @@
 .order-item{
     display: flex;
     padding: 20rpx 10rpx;
+}
+
+.icon{
+    height: 64rpx;
+    width: 64rpx;
 }

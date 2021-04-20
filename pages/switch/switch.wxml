@@ -31,9 +31,6 @@
                         <image wx:else data-id="{{item.id}}" class="icon" bindtap="like"
                             src="/pages/index/icon/like.png">
                         </image>
-
-
-
                     </view>
 
                     <view class="gallery">

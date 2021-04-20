@@ -3,50 +3,34 @@
         <input class="input" type='text' placeholder='输入名称查询' bindinput='input' bindconfirm='search' />
         <icon type='search' bindtap="search"></icon>
     </view>
-
     <view class="index-tab" wx:if="{{showTab}}">
         <view wx:for="{{index_tab}}" wx:key="id">
-            <view class="tab-item" data-id="{{item.type}}" style="background-color:{{item.color}}"
-                bindtap="change_index_type">
+            <view class="tab-item" data-id="{{item.type}}" style="background-color:{{item.color}}" bindtap="change_index_type">
                 <text>{{item.name}}</text>
             </view>
         </view>
     </view>
-
     <view class="categorys">
         <view wx:for="{{categorys}}" wx:key="id">
-            <view class="category" data-id="{{item.type}}" style="background-color:{{item.color}}"
-                bindtap="change_index_game_category">
+            <view class="category" data-id="{{item.type}}" style="background-color:{{item.color}}" bindtap="change_index_game_category">
                 <text>{{item.name}}</text>
             </view>
         </view>
     </view>
-
-  <view class="add">
-    <view>
-        <radio-group bindchange="radioChange">
-            <view class="order">
-            <label wx:for="{{order}}" wx:key="id">
-                <view class="order-item">
-                    <radio value="{{item.id}}" checked="true"  />
-                    <view>{{item.name}}</view>
-                </view>
-            </label>
-        </view>
-        </radio-group>
-    </view>
-
-    <view class="filter">
-        <checkbox value="cb" checked="true"/>中文
-        <checkbox value="cb" checked="true"/>云存储
-        <checkbox value="cb" checked="true"/>xxx模式
-    </view>
-  </view>
     
-
     <view class="game_list">
         <view wx:for="{{index_game_list}}" wx:key="id">
-            <view class="game_list_item" data-id="{{item.id}}" bindtap="tap-game">{{item.title}}</view>
+            <view class="game_list_item" data-id="{{item.id}}" bindtap="tap_game">
+                {{item.title}}
+            </view>
+            <view class="opt">
+                <image wx:if="{{item.userLike}}" data-id="{{item.id}}" class="icon" bindtap="dislike" src="/pages/index/icon/like_fill.png"></image>
+                <image wx:else data-id="{{item.id}}" class="icon" bindtap="like" src="/pages/index/icon/like.png"></image>
+
+                <image wx:if="{{item.userLike}}" data-id="{{item.id}}" class="icon" bindtap="dislike" src="/pages/index/icon/like_fill.png"></image>
+                <image wx:else data-id="{{item.id}}" class="icon" bindtap="like" src="/pages/index/icon/like.png"></image>
+                
+            </view>
         </view>
     </view>
 </view>
