@@ -1,85 +1,16 @@
 /* pages/switch/switch.wxss */
 
 .home{
-    padding: 0rpx 40rpx;
-    background-color: #fff;
-}
-
-.search{
-    display: flex;
-    background-color:aqua;
-    padding: 20rpx 20rpx;
-    margin-top: 20rpx;
-    border-radius: 25rpx;
-}
-
-.input{
-    flex:1;
-}
-
-.categorys{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10rpx 10rpx;
-    margin-bottom: 20rpx;
-    background-color: aqua;
-    border-radius: 15rpx;
-    margin-top: 20rpx;
-}
-
-.category{
-    padding: 5rpx 8rpx;
-    margin: 10rpx;
-    border-radius: 15rpx;
-    background-color: aqua;
-    color:#fff;
-}
-
-
-
-.gameItem{
-    padding: 20rpx 20rpx;
-    margin-bottom: 20rpx;
-    background-color: aqua;
-    border-radius: 25rpx;
-}
-
-.boxArt{
-    height: 243rpx;
-    width: 150rpx;
-}
-
-.item{
-    display: flex;
+    display: felx;
     flex-direction: column;
+    padding: 0rpx 40rpx 0rpx 40rpx;
 }
 
-.line1{
-    display: flex; 
+.title{
+    display: felx;
+    flex-direction: row;
 }
 
-.item-text{
-    width: 480rpx;
-    height: 150rpx;
+.swiper-image{
+    width: 100%;
 }
-
-.info{
-    display: flex;
-    flex-direction: column;
-}
-
-
-.gallery{
-    height: 320rpx;
-}
-
-.icon{
-    height: 42rpx;
-    width: 42rpx;
-}
-
-.gameInfo{
-    display: flex;
-    flex-direction: column;
-}
-

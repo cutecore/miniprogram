@@ -1,35 +1,16 @@
 <view class="home">
-    <view class='search'>
-        <input class="input" type='text' placeholder='输入名称查询' bindinput='input' bindconfirm='search' />
-        <icon type='search' bindtap="search"></icon>
-    </view>
-    <view class="index-tab" wx:if="{{showTab}}">
-        <view wx:for="{{index_tab}}" wx:key="id">
-            <view class="tab-item" data-id="{{item.type}}" style="background-color:{{item.color}}" bindtap="change_index_type">
-                <text>{{item.name}}</text>
-            </view>
-        </view>
-    </view>
-    <view class="categorys">
-        <view wx:for="{{categorys}}" wx:key="id">
-            <view class="category" data-id="{{item.type}}" style="background-color:{{item.color}}" bindtap="change_index_game_category">
-                <text>{{item.name}}</text>
-            </view>
-        </view>
-    </view>
-    
     <view class="game_list">
         <view wx:for="{{index_game_list}}" wx:key="id">
             <view class="game_list_item" data-id="{{item.id}}" bindtap="tap_game">
-                {{item.title}}
-            </view>
-            <view class="opt">
-                <image wx:if="{{item.userLike}}" data-id="{{item.id}}" class="icon" bindtap="dislike" src="/pages/index/icon/like_fill.png"></image>
-                <image wx:else data-id="{{item.id}}" class="icon" bindtap="like" src="/pages/index/icon/like.png"></image>
-
-                <image wx:if="{{item.userLike}}" data-id="{{item.id}}" class="icon" bindtap="dislike" src="/pages/index/icon/like_fill.png"></image>
-                <image wx:else data-id="{{item.id}}" class="icon" bindtap="like" src="/pages/index/icon/like.png"></image>
-                
+                <view class="item-title">{{item.title}}</view>
+                <view >
+                    <image class="item-image" mode="aspectFit" src="http://image.switch-game-slack.top/{{item.iconOss}}?imageView2/2/w/600"></image>
+                </view>
+                <view class="item-price">
+                    价格: {{item.salePrice}}
+                    原价: {{item.msrp}}
+                    史低: {{item.lowestPrice}}
+                </view>
             </view>
         </view>
     </view>

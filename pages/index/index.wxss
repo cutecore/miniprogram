@@ -5,71 +5,22 @@
     background-color: #fff;
 }
 
-.search{
-    display: flex;
-    justify-content: space-between;
-    background-color: #FB6F4F;
-    border-radius: 25rpx;
-    padding: 10rpx 0rpx;
-}
-
-.index-tab{
-    margin-top: 20rpx;
-    display: flex;
-    padding: 20rpx 0rpx;
-    background-color: #99CCCC;
-    border-radius: 25rpx;
-}
-
-.tab-item{
-    margin: 10rpx;
-    padding: 10rpx 20rpx;
-    border-radius: 25rpx;
-    color: #fff;
-}
-
-
-.categorys{
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #FFCC99;
-    border-radius: 25rpx;
-    margin-top: 20rpx;
-}
-
-.category{
-    padding: 10rpx 20rpx;
-    border-radius: 25rpx;
-    color: #fff;
-    margin: 10rpx;
-}
-
 .game_list{
     margin-top: 20rpx;
     display: flex;
     flex-direction: column;
-    border-radius: 25rpx;
-    background-color: #F7EED6;
+    
+    
 }
 
 .game_list_item{
-    padding: 40rpx 0rpx;
-}
-.add{
-    background-color: #FFCCCC;
+    margin-top: 20rpx;
     border-radius: 25rpx;
+    padding: 20rpx 0rpx;
+    background-color: #F7EED6;
 }
 
-.order{
-    display: flex;
-}
-
-.order-item{
-    display: flex;
-    padding: 20rpx 10rpx;
-}
-
-.icon{
-    height: 64rpx;
-    width: 64rpx;
+.item-image{
+    width: 100%;
+    height: 377rpx;
 }

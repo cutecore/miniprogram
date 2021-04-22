@@ -1,71 +1,44 @@
 <view class="home">
 
-    <view class='search'>
-        <input class="input" type='text' placeholder='输入名称查询' bindinput='input' bindconfirm='search' />
-        <icon type='search' bindtap="search"></icon>
+    <view class="title">
+        <text>{{game.title}}</text>
+        <text>{{game.titleZh}}</text>
     </view>
 
-    <view class="categorys">
-        <view wx:for="{{categorys}}" wx:key='id'>
-            <view class="category" style="background-color:{{item.color}}" data-id="{{item.id}}" bindtap="tapCategory">
-                {{item.name}}
-            </view>
-        </view>
+    <view class="gallery">
+        <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style='height:422rpx'>
+            <block wx:for="{{game.gallery}}" wx:key="*this">
+                <swiper-item>
+                    <view class="swiper-item">
+                        <image mode="aspectFit" src="{{item}}" class="swiper-image"></image>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
     </view>
 
     <view>
-        <view wx:for="{{index}}" wx:key='id'>
-            <view class="gameItem" data-id="{{item.id}}" bindtap="tapItem">
-                <view class="line1">
-                    <image mode="widthFix" class="boxArt" src="{{'https://www.nintendo.com/' + item.boxArt}}"></image>
-                    <view class="item-text">
-                        {{item.title}}
-                    </view>
-                </view>
-                <view class="part">
-                </view>
-                <view class="info" wx:if="{{item.open}}">
-                    <view class="opt">
-                        <image wx:if="{{item.like}}" data-id="{{item.id}}" class="icon" bindtap="dislike"
-                            src="/pages/index/icon/like_fill.png"></image>
-                        <image wx:else data-id="{{item.id}}" class="icon" bindtap="like"
-                            src="/pages/index/icon/like.png">
-                        </image>
-                    </view>
 
-                    <view class="gallery">
-                        <swiper indicator-dots='true' autoplay='true'>
-                            <block wx:for="{{item.galleryArr}}">
-                                <swiper-item>
-                                    <scroll-view class="gallery-img">
-                                        <image src="{{'https://www.nintendo.com/' + item}}"></image>
-                                    </scroll-view>
-                                    
-                                </swiper-item>
-                            </block>
-                        </swiper>
 
-                    </view>
-                    <view class="gameInfo">
-
-                        <view>分类: {{item.category}}</view>
-                        <view>游玩人数: {{item.players}}</view>
-                        <view>语言: {{item.languages}}</view>
-                        <view>发行商: {{item.publisher}}</view>
-                        <view>游玩模式: {{item.playMode}}</view>
-                        <view>云存储: {{item.saveDataCloud}}</view>
-                        <view>推荐价格: ${{item.msrp/100}}</view>
-                        <view>免费开玩: {{item.freeToStart}}</view>
-                        <view>容量: {{item.fileSize}}</view>
-
-                    </view>
-
-                    <view>
-
-                    </view>
-
-                </view>
-            </view>
+        <view>
+            {{game.msrp}}
+            {{game.salePrice}}
+            {{game.lowestPrice}}
         </view>
+        <view>
+            {{game.publisher}}
+            {{game.developer}}
+            {{game.fileSize}}
+        </view>
+
+        <view>
+            {{game.players}}
+            {{game.playMode}}
+            {{game.categoryZh}}
+            {{game.languages}}
+            {{game.hasChinese}}
+            {{game.categoryZh}}
+        </view>
+       
     </view>
 </view>

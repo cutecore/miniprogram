@@ -5,7 +5,7 @@ App({
 	globalData: {
 		token: null,
 		systemInfo: null,
-		// server: 'http://127.0.0.1:80',
+		// server: 'http://127.0.0.1:81',
 		server: 'https://www.switch-game-slack.top'
 	},
 
