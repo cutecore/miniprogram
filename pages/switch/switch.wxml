@@ -17,27 +17,25 @@
         </swiper>
     </view>
 
+
+
     <view>
+        <view class="opt">
+            <image class='icon' name='dishave' bindtap="dishave" src="/pages/switch/bg/have.png" wx:if="{{game.userHave}}"></image>
+            <image class='icon' name='have' bindtap="have" src="/pages/switch/bg/dishave.png" wx:else></image>
 
+            <image class='icon' name='dismark' bindtap="dismark" src="/pages/switch/bg/mark.png" wx:if="{{game.userMark}}"></image>
+            <image class='icon' name='mark' bindtap="mark" src="/pages/switch/bg/dismark.png" wx:else></image>
 
-        <view>
-            {{game.msrp}}
-            {{game.salePrice}}
-            {{game.lowestPrice}}
-        </view>
-        <view>
-            {{game.publisher}}
-            {{game.developer}}
-            {{game.fileSize}}
+            <image class='icon' name='dislove' bindtap="dislove" src="/pages/switch/bg/love.png" wx:if="{{game.userLike}}"></image>
+            <image class='icon' name='love' bindtap="love" src="/pages/switch/bg/dislove.png" wx:else></image>
         </view>
 
-        <view>
-            {{game.players}}
-            {{game.playMode}}
-            {{game.categoryZh}}
-            {{game.languages}}
-            {{game.hasChinese}}
-            {{game.categoryZh}}
+
+        <view class='view0'>
+           <text>原价: {{game.msrp}}</text>
+           <text>折扣: {{game.salePrice}}</text>
+           <text>最低价格: {{game.lowestPrice}}</text>
         </view>
        
     </view>
