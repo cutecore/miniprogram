@@ -22,7 +22,7 @@
                 <view class="info1">
                     <view>
                         <text>${{item.salePrice}}</text>
-                        <text>${{item.msrp}}</text>
+                        <text> ${{item.msrp}}</text>
                     </view>
                     <view class="play-mode">
                         <view wx:if="{{(item.playMode & 1) === 1}}">
@@ -35,36 +35,33 @@
                             <image src="/resource/svg/handheld.svg" class="svg"></image>
                         </view>
                     </view>
-                    
-
-                    <view wx:if="{{item.fileSize}}" class="fileSize">
+                    <view wx:if="{{item.fileSize}}" class="align-center">
                         <image src="/resource/svg/fileSize.svg" class="svg"></image><text> {{item.fileSize}}</text>
                     </view>
-
-                    <image class='icon' name='dismark' bindtap="dismark" src="/pages/switch/bg/mark.png" wx:if="{{game.userMark}}"></image>
-                    <image class='icon' name='mark' bindtap="mark" src="/pages/switch/bg/dismark.png" wx:else></image>
-
+                    <image class='icon' data-id="{{item.id}}" name='dismark' bindtap="dislike" src="/pages/index/bg/mark.png" wx:if="{{item.userLike}}"></image>
+                    <image class='icon' data-id="{{item.id}}" name='mark' bindtap="like" src="/pages/index/bg/dismark.png" wx:else></image>
+                    
                 </view>
 
                 <view class='info2'>
 
-                    <view wx:if="{{item.publisher}}">
+                    <view wx:if="{{item.publisher}}" class="align-center">
                         <image src="/resource/svg/publisher.svg" class="svg"></image><text> {{item.publisher}}</text>
                     </view>
-                    <view wx:if="{{item.developer}}">
+                    <view wx:if="{{item.developer}}" class="align-center">
                         <image src="/resource/svg/developer.svg" class="svg"></image><text> {{item.developer}}</text>
                     </view>
                    
                 </view>
 
                 <view>
-                    <view>
+                    <view class="align-center">
                         <image src="/resource/svg/players.svg" class="svg"></image><text>{{item.players}}</text>
                     </view>
-                    <view>
+                    <view class="align-center">
                         <image src="/resource/svg/genre.svg" class="svg"></image><text>{{item.categoryZh}}</text>
                     </view>
-                    <view>
+                    <view class="align-center">
                         <image src="/resource/svg/languages.svg" class="svg"></image><text>{{item.languages}}</text>
                     </view>
                 </view>

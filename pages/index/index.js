@@ -62,6 +62,67 @@ Page({
 
 
     },
+    like(e){
+        console.log(e.target.dataset.id)
+        let id = e.target.dataset.id
+        let game = this.data.index_game_list
+        game.forEach(element => {
+            if(element.id == id){
+                if(element.userLike == NaN){
+                    element.userLike = false;
+                }
+                element.userLike = !element.userLike
+            }  
+        });
+        this.setData({
+            index_game_list:game
+        })
+
+        let token = wx.getStorageSync('token')
+        let url = getApp().globalData.server + '/game-opt/like/' + id;
+        wx.request({
+            url: url,
+            method: 'POST',
+            header: {
+                auth: token
+            },
+            success(res) {
+                if (601 == res.statusCode) {
+                    getApp().userlogin()
+                }
+            }
+        })
+    },
+    dislike(e){
+        console.log(e.target.dataset.id)
+        let id = e.target.dataset.id
+        let game = this.data.index_game_list
+        game.forEach(element => {
+            if(element.id == id){
+                if(element.userLike == NaN){
+                    element.userLike = false;
+                }
+                element.userLike = !element.userLike
+            }  
+        });
+        this.setData({
+            index_game_list:game
+        })
+        let token = wx.getStorageSync('token')
+        let url = getApp().globalData.server + '/game-opt/dislike/' + id;
+        wx.request({
+            url: url,
+            method: 'POST',
+            header: {
+                auth: token
+            },
+            success(res) {
+                if (601 == res.statusCode) {
+                    getApp().userlogin()
+                }
+            }
+        })
+    },
 
    
 

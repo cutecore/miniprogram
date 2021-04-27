@@ -1,13 +1,12 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/mine/mine",
-        "pages/switch/switch"
+        "pages/mine/mine"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
+        "navigationBarTitleText": "Switch美区折扣助手",
         "navigationBarTextStyle": "black"
     },
     "style": "v2",
@@ -19,7 +18,7 @@
         "list": [
             {
                 "pagePath": "pages/index/index",
-                "text": "调研",
+                "text": "游戏",
                 "iconPath": "pages/index/bg/diaoyan.png",
                 "selectedIconPath": "pages/index/bg/diaoyan_active.png"
             },
@@ -32,8 +31,6 @@
         ]
     },
     "permission": {
-        "scope.userLocation": {
-            "desc": "需要记录打卡时的位置信息"
-        }
+        
     }
 }

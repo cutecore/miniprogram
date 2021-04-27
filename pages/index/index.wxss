@@ -51,20 +51,25 @@
 
 .info1{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 .info2{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .play-mode{
     display: flex;
 }
 
-.fileSize{
+.align-center{
     display: flex;
     align-items: center;
+}
+.icon{
+    width: 42rpx;
+    height: 42rpx;
 }
